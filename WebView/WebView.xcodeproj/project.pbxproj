@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0421A3282663A8F2000B6DFD /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 0421A3272663A8F2000B6DFD /* test.js */; };
 		0437F5212660F1290011194A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437F5202660F1290011194A /* AppDelegate.swift */; };
 		0437F5232660F1290011194A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437F5222660F1290011194A /* SceneDelegate.swift */; };
 		0437F5252660F1290011194A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437F5242660F1290011194A /* ViewController.swift */; };
 		0437F5282660F1290011194A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0437F5262660F1290011194A /* Main.storyboard */; };
 		0437F52A2660F12B0011194A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0437F5292660F12B0011194A /* Assets.xcassets */; };
 		0437F52D2660F12B0011194A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0437F52B2660F12B0011194A /* LaunchScreen.storyboard */; };
+		04CD1D292661E2CC009FF8F9 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 04CD1D282661E2CC009FF8F9 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0421A3272663A8F2000B6DFD /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		0437F51D2660F1290011194A /* WebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0437F5202660F1290011194A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0437F5222660F1290011194A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		0437F5292660F12B0011194A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0437F52C2660F12B0011194A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0437F52E2660F12B0011194A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CD1D282661E2CC009FF8F9 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 		0437F5142660F1290011194A = {
 			isa = PBXGroup;
 			children = (
+				04CD1D252661E247009FF8F9 /* Resources */,
 				0437F51F2660F1290011194A /* WebView */,
 				0437F51E2660F1290011194A /* Products */,
 			);
@@ -65,6 +70,15 @@
 				0437F52E2660F12B0011194A /* Info.plist */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		04CD1D252661E247009FF8F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04CD1D282661E2CC009FF8F9 /* index.html */,
+				0421A3272663A8F2000B6DFD /* test.js */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,8 +138,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CD1D292661E2CC009FF8F9 /* index.html in Resources */,
 				0437F52D2660F12B0011194A /* LaunchScreen.storyboard in Resources */,
 				0437F52A2660F12B0011194A /* Assets.xcassets in Resources */,
+				0421A3282663A8F2000B6DFD /* test.js in Resources */,
 				0437F5282660F1290011194A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
