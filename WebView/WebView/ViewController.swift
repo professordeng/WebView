@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     }
 
     private func loadWebview() {
+        webView.navigationDelegate = self
         if let url = Bundle.main.url(forResource: "index", withExtension: "html") {
             webView.load(URLRequest(url: url))
         }
@@ -71,3 +72,53 @@ extension ViewController: WKScriptMessageHandler {
     }
 }
 
+extension ViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        defer { decisionHandler(.allow) }
+        guard let urlString = navigationAction.request.url?.absoluteString else { return }
+        if let map = decodeURLString(urlString) {
+            for (name, value) in map {
+                if name == "json",
+                   let value = value,
+                   let data = value.removingPercentEncoding?.data(using: .utf8),
+                   let person = try? JSONDecoder().decode(Person.self, from: data) {
+                    print("person: ", person.name)
+                } else {
+                    print(name, ": ", value ?? "nil")
+                }
+            }
+        }
+    }
+
+    func decodeURLString(_ urlString: String) -> [String: String?]? {
+        if urlString.starts(with: messageName),
+           let comp = URLComponents(string: urlString),
+           let queryItems = comp.queryItems {
+            var map: [String: String?] = [:]
+            for item in queryItems {
+                if item.name == "base64",
+                   let value = item.value,
+                   let data = Data(base64Encoded: value),
+                   let jsonString = String(data: data, encoding: .utf8) {
+                    map["json"] = jsonString.removingPercentEncoding
+                } else {
+                    map[item.name] = item.value
+                }
+            }
+            return map
+        }
+        return nil
+    }
+}
+
+struct Person: Decodable {
+    let name: String
+    let score: Score
+
+    struct Score: Decodable {
+        let math: String
+        let english: String
+    }
+}

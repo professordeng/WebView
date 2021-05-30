@@ -1,5 +1,5 @@
-var testDictionary = {"key1" : "value1&value1b", "key2" : [{"key3" : "€", "key4" : "menù", "key5" : "a?b"}]};
 var urlPrefix = "native://";
+var dictionary = {"name" : "David&professordeng", "score" : {"math" : "100", "english" : "60"}};
 
 function initPage(parameter) {
     if (parameter) {
@@ -20,27 +20,26 @@ function receiveJSON(json) {
     return "OK";
 }
 
-function sendMessage() {
+function sendMessage1() {
     window.webkit.messageHandlers.native.postMessage({parameter1 : "value1", parameter2 : "value2"})
 }
 
-function sendMessageParameters() {
+function sendMessage2() {
     window.webkit.messageHandlers.native.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
 }
 
-function sendParameters() {
+function sendMessage3() {
     window.location = urlPrefix + "parameters?parameter1=100&parameter2=200&parameter3=abcd";
 }
 
 function sendJSON() {
-    var dictionary = {"key1" : "value1&value1b", "key2" : [{"key3" : "€", "key4" : "menù", "key5" : "a?b"}]};
-    window.webkit.messageHandlers.native.postMessage({message : testDictionary});
+    window.webkit.messageHandlers.native.postMessage({message : dictionary});
 }
 
 function sendJSONURL() {
-    window.location = urlPrefix + "message=" + encodeURIComponent(JSON.stringify(testDictionary));
+    window.location = urlPrefix + "parameters?json=" + encodeURIComponent(JSON.stringify(dictionary));
 }
 
 function sendBase64() {
-    window.location = urlPrefix + btoa(encodeURIComponent(JSON.stringify(testDictionary)));
+    window.location = urlPrefix + "parameters?base64=" + btoa(encodeURIComponent(JSON.stringify(dictionary)));
 }
