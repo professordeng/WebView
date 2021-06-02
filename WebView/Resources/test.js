@@ -17,11 +17,11 @@ function test(stringParameter, number, dictionary) {
 function receiveJSON(json) {
     console.log("received json");
     console.log(json);
-    return "OK";
+    return json;
 }
 
 function sendMessage1() {
-    window.webkit.messageHandlers.native.postMessage({parameter1 : "value1", parameter2 : "value2"})
+    window.webkit.messageHandlers.native.postMessage("value")
 }
 
 function sendMessage2() {

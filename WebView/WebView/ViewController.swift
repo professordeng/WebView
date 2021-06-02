@@ -48,7 +48,8 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    func userContentController(_ userContentController: WKUserContentController,
+                               didReceive message: WKScriptMessage) {
         if message.name == messageName {
             print("JavaScript is sending a message \(message.body)")
             try? jsCallback()  // 回调 JS 函数
