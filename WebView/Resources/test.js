@@ -1,45 +1,17 @@
-var urlPrefix = "native://";
-var dictionary = {"name" : "David&professordeng", "score" : {"math" : "100", "english" : "60"}};
-
-function initPage(parameter) {
-    if (parameter) {
-        return "OK";
-    }
-    return {"value" : "KO"};
-}
-
-function test(stringParameter, number, dictionary) {
-    console.log("test");
-    alert(stringParameter);
-    return "OK";
-}
-
 function receiveJSON(json) {
-    console.log("received json");
+    console.log("received json.");
     console.log(json);
-    return json;
+    return "received json successfully.";
 }
 
-function sendMessage1() {
-    window.webkit.messageHandlers.native.postMessage("value")
-}
-
-function sendMessage2() {
-    window.webkit.messageHandlers.native.postMessage("parameters?parameter1=100&parameter2=200&parameter3=abcd")
-}
-
-function sendMessage3() {
-    window.location = urlPrefix + "parameters?parameter1=100&parameter2=200&parameter3=abcd";
+function sendMessage() {
+    window.Object.sendMessage("value")
 }
 
 function sendJSON() {
-    window.webkit.messageHandlers.native.postMessage({message : dictionary});
+    window.Object.sendJSON({"name" : "professordeng", "score" : "100"})
 }
 
-function sendJSONURL() {
-    window.location = urlPrefix + "parameters?json=" + encodeURIComponent(JSON.stringify(dictionary));
-}
-
-function sendBase64() {
-    window.location = urlPrefix + "parameters?base64=" + btoa(encodeURIComponent(JSON.stringify(dictionary)));
+function sendURL() {
+    window.location = "sendURL://parameters?value=100";
 }
